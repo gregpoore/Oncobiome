@@ -1,0 +1,109 @@
+{
+    "beaker": "2",
+    "evaluators": [
+        {
+            "name": "HTML",
+            "plugin": "HTML",
+            "view": {
+                "cm": {
+                    "mode": "htmlmixed"
+                }
+            }
+        },
+        {
+            "name": "JavaScript",
+            "plugin": "JavaScript",
+            "view": {
+                "cm": {
+                    "mode": "javascript",
+                    "background": "#FFE0F0"
+                }
+            },
+            "languageVersion": "ES2015"
+        },
+        {
+            "name": "IPython",
+            "plugin": "IPython",
+            "setup": "%matplotlib inline\nimport numpy\nimport matplotlib\nfrom matplotlib import pylab, mlab, pyplot\nnp = numpy\nplt = pyplot\nfrom IPython.display import display\nfrom IPython.core.pylabtools import figsize, getfigs\nfrom pylab import *\nfrom numpy import *\n",
+            "view": {
+                "cm": {
+                    "mode": "python"
+                }
+            }
+        },
+        {
+            "name": "R",
+            "plugin": "R",
+            "view": {
+                "cm": {
+                    "mode": "r"
+                }
+            }
+        },
+        {
+            "name": "Python3",
+            "plugin": "Python3",
+            "setup": "%matplotlib inline\nimport numpy\nimport matplotlib\nfrom matplotlib import pylab, mlab, pyplot\nnp = numpy\nplt = pyplot\nfrom IPython.display import display\nfrom IPython.core.pylabtools import figsize, getfigs\nfrom pylab import *\nfrom numpy import *\n",
+            "view": {
+                "cm": {
+                    "mode": "python"
+                }
+            }
+        }
+    ],
+    "cells": [
+        {
+            "id": "codevZQdbJ",
+            "type": "code",
+            "evaluator": "IPython",
+            "input": {
+                "body": [
+                    "beaker.df = 2+3",
+                    "beaker.df"
+                ]
+            },
+            "output": {
+                "result": "<div class=\"output_subarea output_text\"><pre>5</pre></div>",
+                "selectedType": "Html",
+                "pluginName": "IPython",
+                "shellId": "7E70221D6D194AAF90D167E5800055FF",
+                "elapsedTime": 396,
+                "dataresult": 5,
+                "state": {},
+                "height": 53
+            },
+            "evaluatorReader": true,
+            "lineCount": 2
+        },
+        {
+            "id": "code1jAvQe",
+            "type": "code",
+            "evaluator": "R",
+            "input": {
+                "body": [
+                    "tmp <- beaker::get('df')",
+                    "tmp <- tmp + 5",
+                    "tmp"
+                ]
+            },
+            "output": {
+                "result": "[1] 10",
+                "selectedType": "Text",
+                "pluginName": "R",
+                "shellId": "e6117fba-36ea-40d6-9589-4f9df1607ab0",
+                "elapsedTime": 721,
+                "dataresult": [
+                    10
+                ],
+                "state": {},
+                "height": 56
+            },
+            "evaluatorReader": true,
+            "lineCount": 3
+        }
+    ],
+    "namespace": {
+        "int": 5,
+        "df": 5
+    }
+}
