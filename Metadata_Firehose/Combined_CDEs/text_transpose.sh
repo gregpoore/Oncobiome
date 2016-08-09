@@ -20,20 +20,14 @@ done
 
 echo "Transposing complete!"
 
-### The code below would append all the files together.
-### However, after closer examination, it appears that not all of the
-### metadata tables have the same number of columns. A full join (logical sets)
-### could be done, but this would result in redundant, hard-to-access data.
-### Thus, the transposed files as left as-is until a definite set of metadata columns
-### are selected for the analysis.
+### Extract headers to another file to find intersection of CDE values.
+### After closer examination, it was discovered that not all of the
+### metadata tables had the same number of columns. Hence, an intersection
+### of the column headers is performed, first by extracting the header names,
+### and then by performing set operations in Python.
 
-# echo "Transposing complete! Appending files..."
+echo "Extracting column headers and saving in column_names_CDEs.txt ..."
 
-# awk '
-#     FNR==1 && NR!=1 { while (/^bcr_patient_barcode/) getline; }
-#     1 {print}
-# ' Transposed_All_CDEs*.txt > Appended_Transposed_All_CDEs.txt
+grep '^bcr_patient_barcode' -h Transposed_All_CDEs*.txt > column_names_CDEs.txt
 
-# echo "File appending complete! Removing intermediate files and saving output under Appended_Transposed_All_CDEs.txt"
-
-# #rm -f Transposed*.txt
+echo "Complete!"
