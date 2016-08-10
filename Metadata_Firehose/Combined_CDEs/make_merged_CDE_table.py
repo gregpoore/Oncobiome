@@ -31,13 +31,20 @@ print '\n'.join(intersection_headers_string)
 
 print "\n""Concatenating transposed CDE files..."
 allTransposedFiles = glob.glob("./Transposed*.txt")
-df = pd.concat(
+dfIntersect = pd.concat(
 	pd.read_csv(eachFile, 
 		sep='\t', 
 		usecols = intersection_headers_string) 
 	for eachFile in allTransposedFiles)
 
-## Write to csv file
-df.to_csv('Merged_CDEs.csv')
+allTransposedFiles = glob.glob("./Transposed*.txt")
+dfFullJoin = pd.concat(
+	pd.read_csv(eachFile, 
+		sep='\t') 
+	for eachFile in allTransposedFiles)
 
-print "Complete! Saved in Merged_CDEs.csv"
+## Write to csv file
+dfIntersect.to_csv('Intersected_CDEs.csv')
+dfFullJoin.to_csv('Full_Joined_CDEs.csv')
+
+print "Complete! Saved in Intersected_CDEs.csv"
